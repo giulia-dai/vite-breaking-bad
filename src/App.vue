@@ -1,11 +1,13 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
+import CardList from './components/CardList.vue';
 import axios from 'axios';
 import { store } from './store.js';
 
 export default {
   components: {
     AppHeader,
+    CardList
   },
   data() {
     return {
@@ -14,9 +16,10 @@ export default {
   },
   methods: {
     getCards() {
-      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Dark Magician')
+      // api per avere l'array di TUTTE le carte
+      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
         .then(results => {
-          this.store.cardList = results.data.results;
+          this.store.cardList = results.data.data;
         });
     }
   },
@@ -32,12 +35,8 @@ export default {
   </header>
 
   <main>
-
+    <CardList></CardList>
   </main>
 </template>
 
-<style lang="scss" scoped>
-main {
-  background-color: #D48F38;
-}
-</style>
+<style lang="scss" scoped></style>
