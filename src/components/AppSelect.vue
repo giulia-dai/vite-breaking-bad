@@ -11,17 +11,24 @@ export default {
 </script>
 
 <template>
-    <select name="archetype" id="archetype">
-        <option value="archetype"></option>
+    <select id="archetype" @change="$emit('changes')" v-model="store.doSelect">
+        <option value="" selected>trova per archetipo</option>
+        <option value="archetype" v-for="(archetype, i) in store.archetypes" :key="i">
+            {{ archetype.archetype_name }}
+        </option>
     </select>
 </template>
 
 <style scoped lang="scss">
 #archetype {
-    margin: 5px 20px;
+    margin: 5px 10px;
     border-radius: 20px;
     border: none;
-    width: 100px;
+    width: 150px;
     padding: 10px;
+}
+
+span {
+    margin: 5px;
 }
 </style>
