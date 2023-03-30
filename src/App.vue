@@ -1,13 +1,15 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import CardList from './components/CardList.vue';
+import AppSelect from './components/AppSelect.vue';
 import axios from 'axios';
 import { store } from './store.js';
 
 export default {
   components: {
     AppHeader,
-    CardList
+    CardList,
+    AppSelect
   },
   data() {
     return {
@@ -34,11 +36,21 @@ export default {
     <AppHeader title="Yu-Gi-Oh Api"></AppHeader>
   </header>
 
+
+
   <main>
-    <CardList></CardList>
+    <div class="container">
+      <div class="ms_select">
+        <AppSelect></AppSelect>
+      </div>
+      <div class="row">
+        <CardList></CardList>
+      </div>
+    </div>
+
   </main>
 </template>
 
 <style lang="scss" >
-@use './styles/general.scss'
+@use './styles/general.scss';
 </style>

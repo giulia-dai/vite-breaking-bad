@@ -18,13 +18,17 @@ header {
     background-color: white;
 }
 
-main {
-    width: 1170px;
-    margin: 20px auto;
+
+.container {
     background-color: white;
-    display: flex;
+    width: 1170px;
+    margin: 30px auto;
+}
+
+.row {
     flex-wrap: wrap;
+    display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 30px;
 
 }
